@@ -5,7 +5,7 @@
 So it can be used for boto3
 
 ```python
-aws sso get-role-credentials --profile test-chat --role-name AdministratorAccess --account-id 730133902388 --access-token <token> --region ap-northeast-1
+aws sso get-role-credentials --profile test-xxx --role-name AdministratorAccess --account-id <long number> --access-token <token> --region ap-northeast-1
 ```
 
 # Get region

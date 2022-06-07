@@ -15,18 +15,18 @@ REF:
 Assume you already setup ssh config like this:
 
 ```python
-Host mf_jumpserver
-	Hostname 18.180.196.64
+Host xxxx_jumpserver
+	Hostname <jump ip...>
 	User keith
-	IdentityFile /Users/leung.tsz.kit/.ssh/id_rsa
+	IdentityFile /Users/xxxxx/.ssh/id_rsa
 	Port 23422
 	ForwardAgent Yes
 	PubKeyAuthentication Yes
 	UseKeychain Yes
 Host ec2sandbox
-	HostName keith.dev.aif.musubu.co.in
+	HostName <ec2 host / ip>
 	User keith
-	ProxyCommand ssh -W %h:%p mf_jumpserver
+	ProxyCommand ssh -W %h:%p xxxx_jumpserver
 	# Only needed if you want to do port forwarding (tunnel)
 	LocalForward 8888 localhost:8888
 ```
@@ -35,12 +35,18 @@ Host ec2sandbox
 
 1. Open the `.ssh/config`
     - *Optional* You can install this [vscode extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh-edit) to edit ssh config more easier
-2. And added port forwarding, such as in the [step here](https://moneyforward.kibe.la/notes/204950#setup-ssh-tunnel)
+2. And added port forwarding, such as
+    
+    ```python
+    Host ec2sandbox
+      ....
+      LocalForward 8888 localhost:8888
+      ....
+    ```
+    
 3. Install below official VSCode extension
     - [Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh)
-4. You will see this button in bottom left after installing the extension
-<img title='image.png' alt='image' src='/attachments/a1a91043-54f6-4e9c-8d45-13fd8fef7fc7' width="300" data-meta='{"width":300,"height":151}'>
+4. You will see a button in bottom left after installing the extension
 5. Click "Connect to Host..."
-<img title='image.png' alt='image' src='/attachments/25d8704e-8820-4201-9d24-5362b7715d37' width="1210" data-meta='{"width":1210,"height":238}'>
 6. The ssh config host which you setup before should appear here as an option. Just choose it and everything would be setup automatically.
 7. It is done now! You can click **File -> open folder** to select a remote folder to open as workspace. Also the terminal here would be inside the EC2 already.

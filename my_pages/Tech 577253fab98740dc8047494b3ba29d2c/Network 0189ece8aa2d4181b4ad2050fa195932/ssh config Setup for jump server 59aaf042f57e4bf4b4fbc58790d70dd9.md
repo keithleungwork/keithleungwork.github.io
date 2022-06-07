@@ -4,7 +4,7 @@
 
 ## Intro
 
-Assuming you already finish the 1st time setup in this post [Setup connection to EC2](https://moneyforward.kibe.la/notes/204090)
+Assuming your situation is that connecting to a jump server is a must, in order to access EC2.
 
 And now you don't want to connect to jump server manually every time, follow the procedure below to simplify the process.
 
@@ -15,18 +15,18 @@ And now you don't want to connect to jump server manually every time, follow the
 ## Short Method:
 
 ```python
-Host mf_jumpserver
-	Hostname 18.180.196.64
+Host xxxx_jumpserver
+	Hostname <jump server ip>
 	User keith
-	IdentityFile /Users/leung.tsz.kit/.ssh/id_rsa
+	IdentityFile /Users/xxxx/.ssh/id_rsa
 	Port 23422
 	ForwardAgent Yes
 	PubKeyAuthentication Yes
 	UseKeychain Yes
 Host ec2sandbox
-	HostName keith.dev.aif.musubu.co.in
+	HostName <ec2 ip/hostname>
 	User keith
-	ProxyCommand ssh -W %h:%p mf_jumpserver
+	ProxyCommand ssh -W %h:%p xxxx_jumpserver
 	# Only needed if you want to do port forwarding (tunnel)
 	LocalForward 8888 localhost:8888
 ```

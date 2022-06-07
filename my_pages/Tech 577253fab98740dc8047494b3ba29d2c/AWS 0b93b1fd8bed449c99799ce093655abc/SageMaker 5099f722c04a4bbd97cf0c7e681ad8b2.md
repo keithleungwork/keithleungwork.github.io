@@ -20,7 +20,7 @@ processor = Processor(
 
 processor.run(
     arguments=[
-        "--onnx_filename", "tf_bert_for_token_classification.onnx",
+        "--onnx_filename", "xxxx.onnx",
     ],
 		...
 )
