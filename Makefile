@@ -2,7 +2,7 @@ default:
 	echo "hi"
 
 start: replace_link
-	bundle exec jekyll serve
+	bundle exec jekyll serve --incremental --watch --safe
 
 # To fix the encoded links in md
 replace_link:

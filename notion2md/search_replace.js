@@ -43,6 +43,7 @@ const getAllFiles = function(dirPath, arrayOfFiles) {
 }
 
 
+// The main function to fix links in all md files, in the given directory
 const fix_all_md_link = (dir_path, in_options) => {
     // Fill default option
     options = _.defaultsDeep(in_options, {
@@ -66,4 +67,5 @@ const fix_all_md_link = (dir_path, in_options) => {
 }
 
 
-fix_all_md_link('./my_pages')
+
+fix_all_md_link('./notes')
