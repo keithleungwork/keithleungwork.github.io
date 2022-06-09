@@ -7,7 +7,7 @@ domain: ""
 
 # your web site url
 # for GitHub Pages, url: "https://your_github_user_name.github.io"
-url: ""
+url: "https://keithleungwork.github.io/"
 
 # path to this site
 # if your page is located at https://your_github_user_name.github.io/blog, then set baseurl: "/blog"
@@ -28,6 +28,14 @@ defaults:
     values:
       layout: "post"
       permalink: /posts/:path
+
+  # for notes
+  - scope:
+      # to separate language posts folders
+      path: "notes"
+    values:
+      layout: "note"
+
 
   # for multilingual posts
   # - scope:
@@ -115,6 +123,12 @@ sass:
   sass_dir: assets/_scss
   # enable css compression
   style: compressed
+
+###########################################################
+# Custom plugin to disable feed generation
+###########################################################
+feed:
+  disable: true
 
 ###########################################################
 # Exclude these files or folders from production site
