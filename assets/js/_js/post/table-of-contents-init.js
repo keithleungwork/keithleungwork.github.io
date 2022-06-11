@@ -13,13 +13,12 @@
       function InitToc() {
         /* if not in post page, exit. */
         if (typeof Toc === "undefined") return false;
-
         const tocNavSelector = '#table-of-contents';
         const tocOutputTarget = $(tocNavSelector);
         const tocInputSource = $(".main-container");
 
         /* if it's nothing to show, exit. */
-        if (Toc.helpers.getTopLevel(tocInputSource) <= 1) return false;
+        if (Toc.helpers.getTopLevel(tocInputSource) < 1) return false;
         Toc.init({
           $nav: tocOutputTarget
           , $scope: tocInputSource
