@@ -12,13 +12,11 @@
   <script src="{{ site.baseurl }}/assets/js/bootstrap.min.js"></script>
 {%- endif %}
 
-{%- if site.data.conf.posts.post_table_of_contents == true and page.layout == 'post' -%}
-  {%- comment -%} this must be after bootstrap.min.js {%- endcomment -%}
-  {% if site.data.conf.main.use_cdn_resources_if_available -%}
-    <script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v0.4.1/dist/bootstrap-toc.min.js"></script>
-  {%- else %}
-    <script src="{{ site.baseurl }}/assets/js/bootstrap-toc.min.js"></script>
-  {%- endif %}
+{%- comment -%} this must be after bootstrap.min.js {%- endcomment -%}
+{% if site.data.conf.main.use_cdn_resources_if_available -%}
+  <script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v0.4.1/dist/bootstrap-toc.min.js"></script>
+{%- else %}
+  <script src="{{ site.baseurl }}/assets/js/bootstrap-toc.min.js"></script>
 {%- endif %}
 
 <script src="{{ site.baseurl }}/assets/js/main.js"></script>

@@ -33,12 +33,12 @@ layout: util/compress
   </head>
 
   <body {{ default_dark }}>
-    {% if color_scheme_enabled -%}
+    {%- if color_scheme_enabled -%}
       <script src="{{ site.baseurl }}/assets/js/color-scheme-attr-init.js" data-mode="{{ site.data.conf.main.color_scheme_default_dark }}"></script>
-    {%- endif %}
+    {%- endif -%}
     {% include default/nav/navigation-top-nav.html -%}
     {% include default/nav/navigation-side-nav.html -%}
-    {% if site.data.conf.posts.post_table_of_contents and page.layout == "post"-%}
+    {% if page.layout == "note" or page.layout == "note-list" -%}
       {%- include post/table-of-contents.html -%}
     {%- endif -%}
     <div id="main-wrapper">

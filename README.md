@@ -11,6 +11,8 @@
     - [_config.yml](#_configyml)
     - [_data/owner.yml](#_dataowneryml)
   - [Tech Stack](#tech-stack)
+  - [Coding Guide](#coding-guide)
+    - [Table of content](#table-of-content)
 
 ## Test locally
 
@@ -45,3 +47,11 @@ Here is the main configuration of the theme.
 
 - Jekyll
 - Theme is from [MrGreen-JekyllTheme](https://github.com/MrGreensWorkshop/MrGreen-JekyllTheme)
+
+-----
+
+## Coding Guide
+
+### Table of content
+
+By using the gem `jekyll-toc`, put `{{ content | toc }}` in any layout and it print out the TOC

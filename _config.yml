@@ -35,6 +35,7 @@ defaults:
       path: "notes"
     values:
       layout: "note"
+      toc: true
 
 
   # for multilingual posts
@@ -71,11 +72,13 @@ kramdown:
 plugins:
   - jekyll-paginate
   - jekyll-redirect-from
+  - jekyll-toc
 
 # since GitHub Pages runs jekyll with "--safe" flag, we need to add supported plugins in here. (only github supported plugins are allowed)
 whitelist:
   - jekyll-paginate
   - jekyll-redirect-from
+  - jekyll-toc
 
 ###########################################################
 # jekyll-paginate (https://jekyllrb.com/docs/pagination/)
