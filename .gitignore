@@ -1,20 +1,8 @@
-.DS_Store
+# Build folder
+/site
 
-# jekyll
-_site
-.jekyll
-.jekyll-metadata
-.sass-cache
+# python
+.venv
 
-# Ruby
-.bundle
-/vendor
-Gemfile.lock
-
-# JS
-node_modules
-package-lock.json
-.env
-
-# dev
+# vscode
 .vscode
