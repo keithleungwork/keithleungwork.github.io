@@ -1,4 +1,4 @@
-# Keith's Blog
+# About
 
 ![ ](assets/main_logo.png){ align=right }
 

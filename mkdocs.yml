@@ -1,5 +1,5 @@
 # Mkdocs config: https://www.mkdocs.org/user-guide/configuration/#configuration
-site_name: My Docs
+site_name: Keith's Blog
 theme:
   name: material
   logo: assets/main_logo.png
