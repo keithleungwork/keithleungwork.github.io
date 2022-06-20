@@ -7,7 +7,7 @@
 - List of free ML book
     - [https://github.com/josephmisiti/awesome-machine-learning/blob/master/books.md](https://github.com/josephmisiti/awesome-machine-learning/blob/master/books.md)
 - FastAI - [https://www.amazon.com/Deep-Learning-Coders-fastai-PyTorch/dp/1492045527](https://www.amazon.com/Deep-Learning-Coders-fastai-PyTorch/dp/1492045527)
-- 
+- Python data science - [https://www.oreilly.com/library/view/python-data-science/9781491912126/](https://www.oreilly.com/library/view/python-data-science/9781491912126/)
 
 ---
 
