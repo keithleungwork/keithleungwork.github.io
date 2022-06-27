@@ -2,6 +2,33 @@
 
 ---
 
+## Browser Download
+
+### Handle Blob/ file saving in browser
+
+- Use the lib - [https://github.com/eligrey/FileSaver.js/](https://github.com/eligrey/FileSaver.js/)
+
+```jsx
+// Ref from https://medium.com/@fakiolinho/handle-blobs-requests-with-axios-the-right-way-bb905bdb1c04
+
+// In fileSave.js
+import FileSaver from 'file-saver';
+
+export default (fileData, fileName) => FileSaver.saveAs(fileData, fileName);
+
+// In <any API functions>.js
+import fileSaver from './fileSaver';
+import moment from "moment"
+
+export async function downloadFile() {
+	const blobData = await someApiRequest()
+	const zip_file_name = moment().format("YYYYMMDD-hhmmss") + ".zip"
+	await fileSaver(ran_res, zip_file_name);
+}
+```
+
+---
+
 ## File Create/Read/Delete
 
 ### Write file
@@ -116,6 +143,9 @@ console.log(path.dirname("../abc/def/tttt.txt"))
 > Using lib: [https://www.archiverjs.com/docs/quickstart](https://www.archiverjs.com/docs/quickstart)
 > 
 - Zip some files: ***(In NodeJS)***
+    
+    > DO NOT rely on `archive.finalize()`, you should resolve in the “close/end” listener
+    > 
     
     ```jsx
     // require modules

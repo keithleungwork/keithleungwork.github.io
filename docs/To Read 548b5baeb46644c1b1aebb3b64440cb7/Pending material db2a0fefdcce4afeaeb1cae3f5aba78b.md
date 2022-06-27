@@ -16,3 +16,4 @@
 - Paper to explain gradient descent, optimizer [https://arxiv.org/pdf/1609.04747.pdf](https://arxiv.org/pdf/1609.04747.pdf)
 - Pytorch lightning ?
 - Semi supervised training?
+- A guy got 2nd on kaggle competition - step by step guide - [https://twitter.com/marktenenholtz/status/1539578965920083968](https://twitter.com/marktenenholtz/status/1539578965920083968)
