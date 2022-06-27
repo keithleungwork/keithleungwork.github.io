@@ -2,6 +2,14 @@
 
 ---
 
+## Newsletter
+
+- [https://read.deeplearning.ai/the-batch/](https://read.deeplearning.ai/the-batch/)
+- [https://dataelixir.com/](https://dataelixir.com/)
+- [https://www.deeplearningweekly.com/](https://www.deeplearningweekly.com/)
+
+---
+
 # Book 📘
 
 - List of free ML book
@@ -43,6 +51,9 @@
         - [https://github.com/ujjwalkarn/DataSciencePython](https://github.com/ujjwalkarn/DataSciencePython)
         - Generic algorithms
         - common data analysis and machine learning tasks using python
+- Twitter (following data scientists, engineers, project managers, etc)
+- [Reddit (r/MachineLearning)](https://www.reddit.com/r/MachineLearning/)
+    
     
 
 ---
@@ -58,6 +69,13 @@
         - [https://www.tensorflow.org/tutorials/keras/text_classification#configure_the_dataset_for_performance](https://www.tensorflow.org/tutorials/keras/text_classification#configure_the_dataset_for_performance)
         - .cache - avoid store all data in memory, also faster than loadjng millions of small files
         - .prefetch - allow to do preprocess while training at the same time.
+
+---
+
+## Lesson
+
+- Codecademy - provide many project-wise lesson path, can build up portfolio seamlessly
+    - [https://www.codecademy.com/learn/paths/master-statistics-with-python](https://www.codecademy.com/learn/paths/master-statistics-with-python)
 
 ---
 

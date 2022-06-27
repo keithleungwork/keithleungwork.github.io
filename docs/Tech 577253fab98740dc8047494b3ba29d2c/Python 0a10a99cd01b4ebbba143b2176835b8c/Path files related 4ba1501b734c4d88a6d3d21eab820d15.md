@@ -24,3 +24,5 @@ import os
 model_path = "/somewhere"
 sum(os.path.getsize(f.path) for f in os.scandir(model_path) if f.is_file())
 ```
+
+[CSV file](Path%20files%20related%204ba1501b734c4d88a6d3d21eab820d15/CSV%20file%20e6500676a9c94f458abd847b626fdf5b.md)
