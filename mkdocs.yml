@@ -45,3 +45,26 @@ markdown_extensions:
 
 watch:
   - overrides
+
+extra_javascript:
+  - javascripts/extra.js
+
+extra:
+  # GA
+  # https://squidfunk.github.io/mkdocs-material/setup/setting-up-site-analytics/#google-analytics
+  analytics: 
+    provider: google
+    property: G-9BV8WF297P
+    feedback:
+      title: Was this page helpful?
+      ratings:
+        - icon: material/emoticon-happy-outline
+          name: This page was helpful
+          data: 1
+          note: >-
+            Thanks for your feedback!
+        - icon: material/emoticon-sad-outline
+          name: This page could be improved
+          data: 0
+          note: >- 
+            Thanks for your feedback!
