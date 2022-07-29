@@ -46,8 +46,8 @@ markdown_extensions:
 watch:
   - overrides
 
-extra_javascript:
-  - javascripts/extra.js
+# extra_javascript:
+#   - javascripts/extra.js
 
 extra:
   # GA
