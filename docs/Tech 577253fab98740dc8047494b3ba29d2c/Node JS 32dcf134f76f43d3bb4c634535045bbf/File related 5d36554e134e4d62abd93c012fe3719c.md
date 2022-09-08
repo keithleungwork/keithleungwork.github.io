@@ -88,6 +88,73 @@ fs.unlinkSync(link_path)
 
 ---
 
+## CSV file
+
+Libs:
+
+- Papaparse - [https://www.papaparse.com/docs](https://www.papaparse.com/docs)
+- [https://github.com/adaltas/node-csv](https://github.com/adaltas/node-csv)
+
+Example of reading a CSV ( with Papaparse )
+
+```jsx
+const Papa = require("papaparse")
+const fs = require("fs")
+
+// file path
+let path = "/xxxx.csv"
+
+// This is async way to read
+function asyncWay() {
+  let config = {
+    complete: function(results, file) {
+      console.log("Parsing complete:");
+      console.log(results);
+      console.log("-------------------")
+      console.log(file);
+    }
+  }
+  // Async here !!
+  Papa.parse(
+    fs.createReadStream(path),
+    config)
+}
+
+// This is sync way
+function syncWay(){
+  const csv_str = fs.readFileSync(path, "utf8")
+  const csvobj = Papa.parse(csv_str)  
+  console.log(csvobj)
+}
+
+//asyncWay()
+syncWay()
+
+/* The result object looks like this
+{
+  data: [
+    [ 'col_a', 'col_b', 'col_c' ],
+    [
+      '株式会社クリーク・アンド・リバー社',
+      'CREEK & RIVER Co.,Ltd.',
+      'カブシキガイシャクリークアンドリバーシャ'
+    ],
+    [ '' ]
+  ],
+  errors: [],
+  meta: {
+    delimiter: ',',
+    linebreak: '\r\n',
+    aborted: false,
+    truncated: false,
+    cursor: 84
+  }
+}
+*/
+```
+
+---
+
 ## Path Manipulation
 
 ### Check path exist

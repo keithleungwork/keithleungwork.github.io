@@ -7,6 +7,31 @@
 - RDS metrics list - [https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-metrics.html](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-metrics.html)
 - Step Function metrics list - [https://docs.aws.amazon.com/step-functions/latest/dg/procedure-cw-metrics.html](https://docs.aws.amazon.com/step-functions/latest/dg/procedure-cw-metrics.html)
 
+---
+
+## Log filtering
+
+### In log group, filtering:
+
+Excluding
+
+```python
+# -<pattern>
+-"GET / HTTP/1.1" 200
+```
+
+### In log insight, query:
+
+Contains string
+
+```python
+fields @timestamp, @message
+| filter @message like /something here/
+| sort @timestamp desc
+```
+
+---
+
 # Alarm
 
 Guide to create an alarm for HTTP code 5xx
