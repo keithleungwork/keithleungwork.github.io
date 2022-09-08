@@ -1,5 +1,17 @@
 # Data Structure Skill
 
+---
+
+## Dictionary :
+
+### Get the key of max/min val :
+
+```python
+best_tree_size = min(mae_res, key=mae_res.get)
+```
+
+---
+
 # Type checking
 
 Simple way:

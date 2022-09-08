@@ -6,11 +6,25 @@
 
 # Verb
 
-| Word | Hiragana | Meaning |
+## Conjugation
+
+![Untitled](JaPaNeSe%20fd42b4aa4f5a416eba1b965eeeca9ec4/Untitled.png)
+
+## Example
+
+| Word | romaji | Meaning |
 | --- | --- | --- |
-| 咲く　咲きます | さく |  |
-| 助かる　助かります | たすかる |  |
-| 扱う　扱います | あつかう |  = Deal, Use |
+| 咲く　咲きます | saku |  |
+| 助かる　助かります | tasu karu | e.g. xxxxxと助かります |
+| 扱う　扱います | a tsu ka u |  = Deal, Use |
+| 送る | okuru |  |
+| 遅れる | okureru |  |
+| 怒る | okoru |  |
+| 含まれる | fuku mareru |  |
+| 満たす | mitasu | to satisfy |
+| 異なる | koto naru |  |
+| 急かす | sekasu | To hurry
+e.g. 急かしてすいません　 |
 
 ---
 
@@ -22,13 +36,21 @@
 | 地図 | ちず |  |
 | お手伝い | お　て　つだい |  |
 | さら | さら | new, or can use まっさら (more new) |
+| 空白 | くうはく |  |
+| 個々 | ここ | individual
+e.g. このクラスの個々のメンバーは… |
 
 ---
 
 # Usage Example
 
+## Questions
+
+## Others
+
 - もしかしたら、金融の知識があるスタッフなら、もっと詳しいかもしれませんね。
 - 社名を政府のどこかに登録しないと。
 - 参考になります。/  参考になると思います。
-- xxxxxと助かります
-- 急かしてすいません　（せかす）
+- 言う通り/言った通り
+    - 私が**言った通り**に動いてください。 ( 言ったタイミングが過去で )
+    - 私が**言う通り**に動いてください。( 言うタイミングが未来になるため、意味が異なります。)

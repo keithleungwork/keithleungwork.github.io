@@ -117,4 +117,36 @@ Target: grow 3 branches.
 ### 整枝
 
 - Cute the main branch when main leafs become more than 6, i.e. 6 leafs remain.
-- Then, only keep 2 branches with the best condition. Cut all other branches of main branch.
+- Then, only keep 4 branches with the best condition. Cut all other branches of main branch.
+- Target : keep totally 2 watermelon among 4 branches.
+- Cut 1st and 2nd watermelon before growing up.
+- Like the image below, grow between 16- 22
+
+![fig06.png](Plant%20Treatment%20by%20types%204cbba7f9c6ce4e75ab479a37ceff9426/fig06.png)
+
+---
+
+## オクラ
+
+### 肥料
+
+- 植え付け20日後から**2〜3週間に1回のペースで追肥**
+します。畝の肩か株間にまいていきます。
+- This pic shows the unhealthy leaf → 追肥する！ ([image ref](https://ymmfarm.com/cultivation/veg/okra))
+
+![Untitled](Plant%20Treatment%20by%20types%204cbba7f9c6ce4e75ab479a37ceff9426/Untitled%203.png)
+
+### **整枝**
+
+- Depends on the growth.
+    
+    ![Screen Shot 2022-07-06 at 16.48.54.png](Plant%20Treatment%20by%20types%204cbba7f9c6ce4e75ab479a37ceff9426/Screen_Shot_2022-07-06_at_16.48.54.png)
+    
+
+### 収穫
+
+Special!!!
+
+- 1本収穫するごとに、2段下の葉を切り取ります。
+    
+    ![Untitled](Plant%20Treatment%20by%20types%204cbba7f9c6ce4e75ab479a37ceff9426/Untitled%204.png)

@@ -10,6 +10,28 @@
 
 ---
 
+## Image processing
+
+- openCV
+- Pillow
+
+---
+
+## Visualization Lib
+
+- matplotlib
+    - like a base for every other lib
+    - enough for simple 2d graph
+- seaborn
+    - good for heatmap
+- plotly
+    - great for 3d plot
+- Graphviz
+    - [https://www.graphviz.org/](https://www.graphviz.org/)
+    - Good for plotting Network style nodes and graph
+
+---
+
 # Doc / Guide
 
 - A better doc than official python doc

@@ -1,0 +1,10 @@
+# Structuring Machine Learning Projects
+
+---
+
+## Goal
+
+- Learn how to structure your machine learning project
+- New best practices for splitting train, test, eval datasets
+- Deal with the issue if your training set and your test come from different distributions
+- End-to-end deep learning

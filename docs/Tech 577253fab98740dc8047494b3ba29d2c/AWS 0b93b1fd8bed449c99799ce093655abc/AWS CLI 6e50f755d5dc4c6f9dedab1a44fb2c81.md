@@ -13,3 +13,19 @@ aws sso get-role-credentials --profile test-xxx --role-name AdministratorAccess 
 ```python
 aws configure get region
 ```
+
+---
+
+## S3
+
+### List in a bucket
+
+```python
+aws s3 ls s3://bucketxxxx
+```
+
+Copy all files in a folder
+
+```bash
+aws s3 cp s3://xxxxx/groundtruth_texts . --recursive --profile prod-pfm-aws
+```
