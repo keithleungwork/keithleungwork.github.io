@@ -421,6 +421,8 @@ Here is the summary of the equations, for the example in the slides above, with 
 
 Otherwise all unit in the same layer will be the same no matter after any times of iteration and update. i.e. meaningless how many units you have
 
+Also units are not updated correctly or even not updated
+
 > Seems, it is called `symmetry breaking problem`
 > 
 

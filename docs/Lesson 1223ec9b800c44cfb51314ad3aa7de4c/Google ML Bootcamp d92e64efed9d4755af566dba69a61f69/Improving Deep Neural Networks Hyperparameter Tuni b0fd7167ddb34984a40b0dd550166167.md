@@ -190,6 +190,9 @@ Note that activation function was assumed to be nothing here. So in fact the out
 
 The output is still large enough so the training become very slow.
 
+For example of a sigmoid activation function
+The slope near z=`0` or near `1` is extremely small, so the weights near those extremes will **converge much more slowly** to the solution, and having most of them near the center will speed the convergence.
+
 ![Screen Shot 2022-09-08 at 17.22.54.png](Improving%20Deep%20Neural%20Networks%20Hyperparameter%20Tuni%20b0fd7167ddb34984a40b0dd550166167/Screen_Shot_2022-09-08_at_17.22.54.png)
 
 ### Solution - weight initialization
@@ -197,22 +200,51 @@ The output is still large enough so the training become very slow.
 It is just a partial solution but it is still helpful.
 By using a correct weight initialization technique.
 
-- For each layer, init the `w` by multiply it with square root of `1/n` , where n is the unit number of previous layer(or input)
+- For each layer, init the `w` by multiply it with square root of `1/n` , where n is the unit number of ***previous*** layer(or input)
     - Reason - so the initial `w` value is NOT too small or too large
-- For ReLU, it is said that using `2/n` is a better value
-- For Tanh, `1/n`, it is also called `**Xavier initialization**`
+- For **ReLU**, it is said that using `2/n` is a better value, it is called `He initialization`, because it is named for the first author of He et al., 2015
+- For **Tanh**, `1/n`, it is also called `**Xavier initialization**`
 - For some other way, for example, `2/(n of l-1 + n of l)`
+
+Also, use `np.random.randn`, because it produces numbers in a normal distribution.
+
+> When used for weight initialization, randn() helps most the weights to Avoid being close to the extremes, allocating most of them in the center of the range.
+> 
 
 ![Screen Shot 2022-09-08 at 17.49.12.png](Improving%20Deep%20Neural%20Networks%20Hyperparameter%20Tuni%20b0fd7167ddb34984a40b0dd550166167/Screen_Shot_2022-09-08_at_17.49.12.png)
 
+A conclusion of weight initialization :
+
+| Model | Train accuracy | Problem/Comment |
+| --- | --- | --- |
+| 3-layer NN with zeros initialization | 50% | fails to break symmetry |
+| 3-layer NN with large random initialization | 83% | too large weights |
+| 3-layer NN with He initialization | 99% | recommended method |
+
 ## Gradient Checking:
 
-It is a debugging step to ensure the gradient descent step you built is correct
+It is a debugging step to ensure the gradient descent step you built is correct (especially back propagation)
 
 How it works ???
 
-- (Not sure) calculate the approximate gradient `dθ` by the formula
-- Then compare the real `dθ` with the approximate one, by euclidean distance
+- Calculate the `gradient` via back propagation
+    - hints: convert them into 1-dim array (dW1, dB1, dW2, dB2…)
+- Calculate the `approximate gradient` manually, by using theta + - epsilon
+For EACH parameters
+    - hints: for each comparison(e.g. `dW1` vs `approx_dW1`), keep all other parameters unchanged
+    - 1st - get TWO Cost `J` via forward propagation of (***W1+/-epsilon***, B1, W2, B2…)
+    - 2nd - calculate the slope(gradient) by $\frac {J(+) - J(-)} { 2 epsilon}$
+- At last, compare both 1-dim array `grad` vs `approx_grad`
+$\frac {\| grad - gradapprox \|_2}{\| grad \|_2 + \| gradapprox \|_2 }$
+    
+    ```python
+    numerator = np.linalg.norm( (grad - gradapprox) )
+    denominator = np.linalg.norm( grad ) + np.linalg.norm( gradapprox )
+    difference = numerator / denominator
+    ```
+    
+
+![Screen Shot 2022-09-08 at 18.20.15.png](Improving%20Deep%20Neural%20Networks%20Hyperparameter%20Tuni%20b0fd7167ddb34984a40b0dd550166167/Screen_Shot_2022-09-08_at_18.20.15.png)
 
 Note
 
@@ -225,11 +257,58 @@ Note
     - So in this case, can do a check after random init
     And do a new check after some training
 
-![Screen Shot 2022-09-08 at 18.20.15.png](Improving%20Deep%20Neural%20Networks%20Hyperparameter%20Tuni%20b0fd7167ddb34984a40b0dd550166167/Screen_Shot_2022-09-08_at_18.20.15.png)
-
 ---
 
-# Week 2
+# Week 2 - Optimizing Algorithms
+
+## Batch / Mini-batch / Stochastic gradient descent:
+
+Batch = Calculate gradient every whole training set , e.g. 1000 sample
+
+Mini-batch = Calculate it for every subset of the whole training set, e.g. every 500 sample, i.e. 2 batches here
+
+Stochastic = Calculate it for every SINGLE sample
+
+Batch method only update after whole dataset, so the training speed can become slow.
+
+Stochastic update the parameters for every sample, so it cannot make the most of vectorization, i.e. the calculation is slower, and the worst case is that it never reaches global minima.
+
+As a result, mini-batch takes the good part from both of them.
+
+Normally, the `batch size` is set to a number of $2^{x}$ (e.g. 64, 128…etc) to fit the CPU/GPU memory
+
+![Screen Shot 2022-09-13 at 16.59.09.png](Improving%20Deep%20Neural%20Networks%20Hyperparameter%20Tuni%20b0fd7167ddb34984a40b0dd550166167/Screen_Shot_2022-09-13_at_16.59.09.png)
+
+![Screen Shot 2022-09-13 at 17.03.11.png](Improving%20Deep%20Neural%20Networks%20Hyperparameter%20Tuni%20b0fd7167ddb34984a40b0dd550166167/Screen_Shot_2022-09-13_at_17.03.11.png)
+
+## Fundamental concept - exponentially weighted averages:
+
+This part is a fundamental knowledge before learning other optimization algorithms, apart from Gradient Descent.
+
+To draw an average line, we can use exponentially weighted averages here.
+
+Here is a simplified calculation, without bias correction yet.
+
+e.g. the point at `V1` is calculated by a weighted sum of previous `V0` and current real value.
+
+So the weight here can control how many past records take influence to the current calculating value.
+
+(in the screenshot, green line = large beta, it appears to shift right side because it is “slower to change”)
+
+![Screen Shot 2022-09-13 at 17.05.26.png](Improving%20Deep%20Neural%20Networks%20Hyperparameter%20Tuni%20b0fd7167ddb34984a40b0dd550166167/Screen_Shot_2022-09-13_at_17.05.26.png)
+
+![Screen Shot 2022-09-13 at 17.07.22.png](Improving%20Deep%20Neural%20Networks%20Hyperparameter%20Tuni%20b0fd7167ddb34984a40b0dd550166167/Screen_Shot_2022-09-13_at_17.07.22.png)
+
+Note - the above calculation will have a very small value in the early records.
+So we sometimes apply a `Bias correction`
+
+The `V` value is calculated in the same way but divided by $(1-β^{t})$ at last. So the calculated average value is more close to where they should be.
+
+Also when `t` is larger (i.e. in a later point of data), this value become ~ 1 so it takes very less effect later, which is what we want.
+
+Just keep in mind that if the iteration is large, most people will just ignore this bias correction.
+
+![Screen Shot 2022-09-13 at 17.35.49.png](Improving%20Deep%20Neural%20Networks%20Hyperparameter%20Tuni%20b0fd7167ddb34984a40b0dd550166167/Screen_Shot_2022-09-13_at_17.35.49.png)
 
 ---
 

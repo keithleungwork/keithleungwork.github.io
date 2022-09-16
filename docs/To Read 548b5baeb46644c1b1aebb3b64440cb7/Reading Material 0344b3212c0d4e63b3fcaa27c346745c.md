@@ -10,7 +10,7 @@
 
 ---
 
-# Book 📘
+## Book 📘
 
 > Some thoughts: Prefer to read books of general knowledge, instead of introducing a specific framework/library.
 > 
@@ -122,6 +122,9 @@ The Maths aspect in ML (image from [reddit](https://www.reddit.com/r/learnmachin
 
 ## Video Lesson / Course
 
+- Coursera
+    - Deep learning specialization (by deeplearning.ai) [https://www.coursera.org/specializations/deep-learning](https://www.coursera.org/specializations/deep-learning)
+    - GAN specialization (by deeplearning.ai) [https://www.coursera.org/specializations/generative-adversarial-networks-gans](https://www.coursera.org/specializations/generative-adversarial-networks-gans)
 - Full Stack Deep Learning Youtube channel
     - [https://www.travelwith.jp/roadtraveler/post-62256/](https://www.travelwith.jp/roadtraveler/post-62256/)
 - Codecademy - provide many project-wise lesson path, can build up portfolio seamlessly

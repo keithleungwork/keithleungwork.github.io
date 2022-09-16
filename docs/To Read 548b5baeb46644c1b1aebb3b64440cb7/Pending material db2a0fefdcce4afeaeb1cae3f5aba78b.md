@@ -4,6 +4,8 @@
 
 # Long
 
+- **[LLM.int8(): 8-bit Matrix Multiplication for Transformers at Scale](https://arxiv.org/abs/2208.07339) (2022)**
+    - goal - quantized the model to speed up large model (with drawback)
 - [Neural Architectures for Named Entity Recognition](https://arxiv.org/abs/1603.01360)(2016)
 - [Representation Learning for Information Extraction from Form-like Documents](https://storage.googleapis.com/pub-tools-public-publication-data/pdf/59f3bb33216eae711b36f3d8b3ee3cc67058803f.pdf)(2020)
 - [AN IMAGE IS WORTH 16X16 WORDS: TRANSFORMERS FOR IMAGE RECOGNITION AT SCALE](https://arxiv.org/abs/2010.11929) (2021)
