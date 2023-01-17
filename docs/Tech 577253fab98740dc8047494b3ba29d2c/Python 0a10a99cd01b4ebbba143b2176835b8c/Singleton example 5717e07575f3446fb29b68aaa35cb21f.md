@@ -1,5 +1,37 @@
 # Singleton example
 
+## Use `metaclass`
+
+```python
+class Singleton(type):
+    _instances = {}
+
+    def __call__(cls, *args, **kwargs):
+        print("singleton called")
+        if cls not in cls._instances:
+            print("singleton cls not in _instances")
+            cls._instances[cls] = super(Singleton, cls).__call__(*args, **kwargs)
+        return cls._instances[cls]
+
+class Inference(metaclass=Singleton):
+
+    def __init__(self):
+        print("inference init called")
+        super().__init__()
+        self.model = None
+
+# Example
+a = Inference()
+"""Output
+singleton called
+singleton cls not in _instances
+inference init called
+"""
+
+b = Inference()
+# singleton called
+```
+
 ## Use `_ _ new _ _`
 
 ```python

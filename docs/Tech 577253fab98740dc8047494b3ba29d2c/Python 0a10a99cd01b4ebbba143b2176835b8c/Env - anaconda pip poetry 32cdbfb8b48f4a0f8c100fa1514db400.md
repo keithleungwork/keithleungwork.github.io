@@ -32,6 +32,8 @@ Create env in current folder
 conda create --prefix ./envs
 ## Or
 conda create -p ./envs
+## create with a specific python version
+conda create -p .venv python=3.8
 ```
 
 Activate env

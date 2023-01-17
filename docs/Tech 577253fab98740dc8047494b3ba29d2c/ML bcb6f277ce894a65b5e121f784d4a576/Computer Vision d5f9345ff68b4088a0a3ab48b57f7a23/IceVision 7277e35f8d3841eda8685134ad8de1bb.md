@@ -56,7 +56,7 @@ Basic knowledge of
     - You need to set num of workers to 0
 
 - issue - images / plot not showing
-    - you need to put `%matplotlib inline` or [others](../../Python%200a10a99cd01b4ebbba143b2176835b8c/Visualization%20Technique%20a3c73bacb92948debeed202afd709466.md) in the top of notebook
+    - you need to put `%matplotlib inline` or [others](../../Python%200a10a99cd01b4ebbba143b2176835b8c/Visualization%20-%20plotting%20a3c73bacb92948debeed202afd709466.md) in the top of notebook
     - [https://github.com/matplotlib/matplotlib/issues/14534](https://github.com/matplotlib/matplotlib/issues/14534)
     
 - issue - about “image truncated”, below code can solve it

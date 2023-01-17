@@ -1,13 +1,48 @@
 # Path / files related
 
-## Path manipulation
+---
 
-### Search within folder :
+## Search within folder :
+
+### Via `glob`
 
 ```python
 import glob
 import os
 character_json_paths = glob.glob(os.path.join(DIR_JSON, "*.json"))
+```
+
+### Via simple `os.listdir`
+
+```python
+from pathlib import Path
+from typing import List
+import os
+
+def search_files_of_type(
+    path: str, suffix: str = ".json",
+    exclude_files_name: List[str] = [],
+    exclude_ignore_suffix: bool = True
+) -> list:
+    # Remove suffix if True
+    if exclude_ignore_suffix and len(exclude_files_name) > 0:
+        new_excl = [Path(v).with_suffix("") for v in exclude_files_name]
+        # listdir ONLY list the direct level, NOT all nested path
+        return [v for v in os.listdir(path) if v.endswith(suffix) and Path(v).with_suffix("") not in new_excl]
+    else:
+        return [v for v in os.listdir(path) if v.endswith(suffix) and v not in exclude_files_name]
+```
+
+---
+
+## Path manipulation
+
+### File suffix(i.e. extension)
+
+```python
+v = "/ada/wdwdw.txt"
+filename_no_suffix = str(Path(v).with_suffix(""))
+# /ada/wdwdw
 ```
 
 ### join/resolve a path :
@@ -32,7 +67,9 @@ sum(os.path.getsize(f.path) for f in os.scandir(model_path) if f.is_file())
 
 ---
 
-## Manage temp folder/file
+## Temp folder/file
+
+### Via `tempfile` :
 
 ```python
 
@@ -52,9 +89,11 @@ with tempfile.TemporaryDirectory() as path:
 
 ---
 
-## Generic text file
+## General - Text File
 
-Get all lines into a list :
+### Read file:
+
+Get all lines into a `list`
 
 ```python
 pdf_list = []
@@ -74,4 +113,4 @@ with open("./pdf_list.log") as f:
 
 [CSV file](Path%20files%20related%204ba1501b734c4d88a6d3d21eab820d15/CSV%20file%20e6500676a9c94f458abd847b626fdf5b.md)
 
-[Logger setup](Path%20files%20related%204ba1501b734c4d88a6d3d21eab820d15/Logger%20setup%20eb5f7fe8152840e0ae3d06af63802eb6.md)
+[H5PY](Path%20files%20related%204ba1501b734c4d88a6d3d21eab820d15/H5PY%207268064783ad44a4a47c8c83cb50323a.md)

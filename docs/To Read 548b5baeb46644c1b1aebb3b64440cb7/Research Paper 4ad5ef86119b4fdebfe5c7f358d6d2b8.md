@@ -3,6 +3,12 @@
 > Note: Store the paper I read already. Put to [Pending material](Pending%20material%20db2a0fefdcce4afeaeb1cae3f5aba78b.md) if not read yet.
 > 
 
+A repo + Kaggle notebook explaining Key Concepts of various papers, e.g. BERT, Donut…etc
+
+- https://github.com/dair-ai/ML-Papers-Explained
+
+---
+
 ## NLP
 
 - [Chargrid: Towards Understanding 2D Documents](https://arxiv.org/pdf/1809.08799.pdf)(2018)

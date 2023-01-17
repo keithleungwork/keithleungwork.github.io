@@ -2,9 +2,11 @@
 
 It reduces the number of input variables in a dataset to find a lower-dimensional representation that still preserves the salient relationships in the data.
 
-it is classified as `unsupervised learning` techniques.
+it is classified as `unsupervised learning` techniques sometimes, for some subgroups that don’t require labeled data.
 
-> Questions: Why I saw people used it on data for supervised learning ?
+- ref: [https://scikit-learn.org/stable/modules/unsupervised_reduction.html](https://scikit-learn.org/stable/modules/unsupervised_reduction.html)
+
+> Many of the [Unsupervised learning](https://scikit-learn.org/stable/unsupervised_learning.html#unsupervised-learning) methods implement a `transform` method that can be used to reduce the dimensionality.
 > 
 
 ---
@@ -14,8 +16,6 @@ it is classified as `unsupervised learning` techniques.
 ## PCA - Principal Component Analysis
 
 [PCA ([Principal Component Analysis](https://en.wikipedia.org/wiki/Principal_component_analysis))](Dimensionality%20Reduction%20f1c61e866dc34e0f9b681709742f50c6/PCA%20(Principal%20Component%20Analysis)%206f6d005a20a14022a296f1433a97d9a0.md)
-
-Use it if data is linear
 
 ---
 
@@ -30,8 +30,6 @@ TBC….
 ## T-SNE - T-distributed Stochastic Neighbor Embedding
 
 [T-SNE - T-distributed Stochastic Neighbor Embedding](Dimensionality%20Reduction%20f1c61e866dc34e0f9b681709742f50c6/T-SNE%20-%20T-distributed%20Stochastic%20Neighbor%20Embeddin%2049b3989aa2c44947af3754d1dcf1edb6.md)
-
-Use it if data is non-linear
 
 ---
 

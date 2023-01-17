@@ -9,3 +9,5 @@
 [Common skills](Computer%20Vision%20d5f9345ff68b4088a0a3ab48b57f7a23/Common%20skills%20019a0c77fee747208fc09a9bd00e50b4.md)
 
 [Data augmentation](Computer%20Vision%20d5f9345ff68b4088a0a3ab48b57f7a23/Data%20augmentation%209620ba2875c14418a71045b110a874df.md)
+
+[Image data Preprocessing](Computer%20Vision%20d5f9345ff68b4088a0a3ab48b57f7a23/Image%20data%20Preprocessing%20bafb2892b94845318e55bee21e58df40.md)
