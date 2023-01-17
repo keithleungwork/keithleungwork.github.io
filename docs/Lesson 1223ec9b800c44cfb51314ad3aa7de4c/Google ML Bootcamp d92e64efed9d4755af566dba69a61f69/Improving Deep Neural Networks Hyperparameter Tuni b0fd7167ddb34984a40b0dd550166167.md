@@ -283,33 +283,325 @@ Normally, the `batch size` is set to a number of $2^{x}$ (e.g. 64, 128…etc) to
 
 ## Fundamental concept - exponentially weighted averages:
 
-This part is a fundamental knowledge before learning other optimization algorithms, apart from Gradient Descent.
+This part is a fundamental knowledge before learning other optimization algorithms other than Gradient Descent.
 
-To draw an average line, we can use exponentially weighted averages here.
+For example it is the core concept of Gradient Descent with momentum. 
 
-Here is a simplified calculation, without bias correction yet.
+**How it works:**
+
+We can use `exponentially weighted averages` , to draw an average line.
+(Here is a simplified calculation, without bias correction yet.)
 
 e.g. the point at `V1` is calculated by a weighted sum of previous `V0` and current real value.
 
-So the weight here can control how many past records take influence to the current calculating value.
-
-(in the screenshot, green line = large beta, it appears to shift right side because it is “slower to change”)
+$V_t = β V_{t-1} + (1-β) θ_t$
 
 ![Screen Shot 2022-09-13 at 17.05.26.png](Improving%20Deep%20Neural%20Networks%20Hyperparameter%20Tuni%20b0fd7167ddb34984a40b0dd550166167/Screen_Shot_2022-09-13_at_17.05.26.png)
 
+**How `β` affects the averaged values ?**
+
+So the weight **`β`** here  controls how many past records make influence to the current value. 
+
+- green line = larger beta, it appears to shift right side because it is “slower to change”
+- yellow = small beta, the past values have less influence
+
 ![Screen Shot 2022-09-13 at 17.07.22.png](Improving%20Deep%20Neural%20Networks%20Hyperparameter%20Tuni%20b0fd7167ddb34984a40b0dd550166167/Screen_Shot_2022-09-13_at_17.07.22.png)
 
-Note - the above calculation will have a very small value in the early records.
-So we sometimes apply a `Bias correction`
+**Bias Correction:**
 
-The `V` value is calculated in the same way but divided by $(1-β^{t})$ at last. So the calculated average value is more close to where they should be.
+The above simplified calculation has a very small value in the early records.
+So we sometimes apply a `Bias correction`.
 
-Also when `t` is larger (i.e. in a later point of data), this value become ~ 1 so it takes very less effect later, which is what we want.
+The `V` value is calculated in the same way but divided by $(1-β^{t})$ at last, where `t` is the # of the record. So the calculated average value is more close to where they should be.
+
+$$
+V_t = \frac { β V_{t-1} + (1-β) θ_t} {1-β^t} 
+$$
+
+When `t` is small (but not zero), `V` is larger.
+
+When `t` is larger (i.e. in a later point of data), this value become ~ 1 so it takes very less effect later, which is what we want.
 
 Just keep in mind that if the iteration is large, most people will just ignore this bias correction.
 
 ![Screen Shot 2022-09-13 at 17.35.49.png](Improving%20Deep%20Neural%20Networks%20Hyperparameter%20Tuni%20b0fd7167ddb34984a40b0dd550166167/Screen_Shot_2022-09-13_at_17.35.49.png)
 
+## Gradient Descent with Momentum:
+
+By applying exponentially weighted average during calculating the derivatives:
+
+$v_{dW} = β  v_{dW} + (1-β)dW
+\\
+v_{db} = β  v_{db} + (1-β)db
+\\
+Then, W = W - α v_{dW}, b = b - α v_{db}$
+
+## Quiz notes:
+
+```python
+v0 = 0
+v1 = 0.5*v0 + 0.5*10
+v2 = 0.5*v1 + 0.5*25 = 15
+
+# I thought we should use corrected v1 to calculate v2 but wrong...
+corrected_v1 = 5 / (1-0.5^1)
+corrected_v2 = (0.5*corrected_v1 + 0.5*25)/(1-0.5^2)
+```
+
+## Assignment:
+
+- Common values for 𝛽β range from 0.8 to 0.999. If you don't feel inclined to tune this, 𝛽=0.9β=0.9 is often a reasonable default.
+
+![Screen Shot 2022-09-18 at 13.36.33.png](Improving%20Deep%20Neural%20Networks%20Hyperparameter%20Tuni%20b0fd7167ddb34984a40b0dd550166167/Screen_Shot_2022-09-18_at_13.36.33.png)
+
+![Screen Shot 2022-09-18 at 13.37.47.png](Improving%20Deep%20Neural%20Networks%20Hyperparameter%20Tuni%20b0fd7167ddb34984a40b0dd550166167/Screen_Shot_2022-09-18_at_13.37.47.png)
+
+```python
+parameters = update_parameters_with_gd(parameters, grads, learning_rate)
+"""
+parameters -- python dictionary containing your parameters to be updated:
+                parameters['W' + str(l)] = Wl
+                parameters['b' + str(l)] = bl
+grads -- python dictionary containing your gradients to update each parameters:
+                grads['dW' + str(l)] = dWl
+                grads['db' + str(l)] = dbl
+learning_rate -- the learning rate, scalar.
+"""
+
+# below codes are provided
+first_mini_batch_X = shuffled_X[:, 0 : mini_batch_size]
+second_mini_batch_X = shuffled_X[:, mini_batch_size : 2 * mini_batch_size]
+
+mini_batches = random_mini_batches(X, Y, mini_batch_size)
+"""
+Arguments:
+X -- input data, of shape (input size, number of examples)
+Y -- true "label" vector (1 for blue dot / 0 for red dot), of shape (1, number of examples)
+mini_batch_size -- size of the mini-batches, integer
+
+Returns:
+mini_batches -- list of synchronous (mini_batch_X, mini_batch_Y)
+"""
+
+v = initialize_velocity(parameters)
+"""
+Initializes the velocity as a python dictionary with:
+            - keys: "dW1", "db1", ..., "dWL", "dbL" 
+            - values: numpy arrays of zeros of the same shape as the corresponding gradients/parameters.
+Arguments:
+parameters -- python dictionary containing your parameters.
+                parameters['W' + str(l)] = Wl
+                parameters['b' + str(l)] = bl
+
+Returns:
+v -- python dictionary containing the current velocity.
+                v['dW' + str(l)] = velocity of dWl
+                v['db' + str(l)] = velocity of dbl
+"""
+```
+
 ---
 
 # Week 3
+
+## Assignment:
+
+H5PY:
+
+```python
+# How to use h5py
+import h5py
+train_dataset = h5py.File('datasets/train_signs.h5', "r")
+test_dataset = h5py.File('datasets/test_signs.h5', "r")
+
+```
+
+Tensorflow:
+
+```python
+
+# Access
+## Tensor not allow you to print content directly, but have to use iterator/for-loop
+print(next(iter(new_train)))
+## Print info of a tensor
+new_train.element_spec
+"""Output
+TensorSpec(shape=(12288,), dtype=tf.float32, name=None)
+"""
+
+# Declaration
+## constant cannot be modified later
+X = tf.constant(np.random.randn(3,1), name = "X")
+## Variable can be modified
+b = tf.Variable(np.random.randn(4,1), name = "b")
+tf.zeros()
+tf.ones()
+
+# Operation
+## Cast var
+image = tf.cast(image, tf.float32) / 255.0
+## reshape like numpy
+image = tf.reshape(image, [-1,])
+## = np_arr.T
+tf.transpose(minibatch)
+## tf cannot do vectorization like numpy, so need to use a map func
+new_test = x_test.map(normalize_func)
+## Add 2 tensor
+Y = tf.add(X, b)
+tf.math.add
+## dot matrix
+C = tf.matmul(W, X)
+tf.linalg.matmul
+## Pair up two tensor
+dataset = tf.data.Dataset.zip((X_train, Y_train))
+
+# ML func
+## activation func
+a = tf.keras.activations.sigmoid(z)
+a = tf.keras.activations.softmax(z)
+a = tf.keras.activations.relu(z)
+
+## one-hot encoding
+indices = [0, 1, 2]
+depth = 3
+tf.one_hot(indices, depth)  
+"""output: [3 x 3]
+[[1., 0., 0.],
+[0., 1., 0.],
+[0., 0., 1.]]
+"""
+
+## Initialize vectors - glorot initializer, it draws numnber from a truncated normal distribution
+initializer = tf.keras.initializers.GlorotNormal(seed=1)
+W1 = tf.Variable(initializer(shape=(25,12288)))
+
+## Split dataset into minibatches AND preload for streaming(by prefetch)
+minibatches = dataset.batch(minibatch_size).prefetch(8)
+
+## Training - calculate backpropagation automatically
+with tf.GradientTape() as tape:
+  y_pred = forward_propagation(X, parameters) 	# 1. predict, (the func is custom made)
+  minibatch_cost = compute_cost(y_pred, y_true)   # 2. loss, (the compute_cost is custom made, return a cost value)
+trainable_variables = [W1, b1, W2, b2, W3, b3] # define what will be updated during backprop
+grads = tape.gradient(minibatch_cost, trainable_variables) # auto-calculate backprop
+
+## Cost func of category classification (categorical_crossentropy)
+before_sum = tf.keras.losses.categorical_crossentropy(
+    y_true_onehot, y_pred, from_logits=True # if false, logits should be probability
+)
+
+## Optimizer
+optimizer = tf.keras.optimizers.Adam(learning_rate) # init
+optimizer.apply_gradients(zip(grads, trainable_variables)) # update 
+
+## Metrics
+## The CategoricalAccuracy will track the accuracy for this multiclass problem
+test_accuracy = tf.keras.metrics.CategoricalAccuracy() # init
+train_accuracy.update_state(y_true, y_pred) # update metric
+train_accuracy.reset_states() # reset to 0, e.g. starting of each epoch
+```
+
+Sample of model fitting with tf
+
+```python
+def model(X_train, Y_train, X_test, Y_test, learning_rate = 0.0001,
+          num_epochs = 1500, minibatch_size = 32, print_cost = True):
+    """
+    Implements a three-layer tensorflow neural network: LINEAR->RELU->LINEAR->RELU->LINEAR->SOFTMAX.
+    
+    Arguments:
+    X_train -- training set, of shape (input size = 12288, number of training examples = 1080)
+    Y_train -- test set, of shape (output size = 6, number of training examples = 1080)
+    X_test -- training set, of shape (input size = 12288, number of training examples = 120)
+    Y_test -- test set, of shape (output size = 6, number of test examples = 120)
+    learning_rate -- learning rate of the optimization
+    num_epochs -- number of epochs of the optimization loop
+    minibatch_size -- size of a minibatch
+    print_cost -- True to print the cost every 10 epochs
+    
+    Returns:
+    parameters -- parameters learnt by the model. They can then be used to predict.
+    """
+    
+    costs = []                                        # To keep track of the cost
+    train_acc = []
+    test_acc = []
+    
+    # Initialize your parameters
+    #(1 line)
+    parameters = initialize_parameters()
+
+    W1 = parameters['W1']
+    b1 = parameters['b1']
+    W2 = parameters['W2']
+    b2 = parameters['b2']
+    W3 = parameters['W3']
+    b3 = parameters['b3']
+
+    optimizer = tf.keras.optimizers.Adam(learning_rate)
+    
+    # The CategoricalAccuracy will track the accuracy for this multiclass problem
+    test_accuracy = tf.keras.metrics.CategoricalAccuracy()
+    train_accuracy = tf.keras.metrics.CategoricalAccuracy()
+    
+    dataset = tf.data.Dataset.zip((X_train, Y_train))
+    test_dataset = tf.data.Dataset.zip((X_test, Y_test))
+    
+    # We can get the number of elements of a dataset using the cardinality method
+    m = dataset.cardinality().numpy()
+    
+    minibatches = dataset.batch(minibatch_size).prefetch(8)
+    test_minibatches = test_dataset.batch(minibatch_size).prefetch(8)
+    #X_train = X_train.batch(minibatch_size, drop_remainder=True).prefetch(8)# <<< extra step    
+    #Y_train = Y_train.batch(minibatch_size, drop_remainder=True).prefetch(8) # loads memory faster 
+
+    # Do the training loop
+    for epoch in range(num_epochs):
+
+        epoch_cost = 0.
+        
+        #We need to reset object to start measuring from 0 the accuracy each epoch
+        train_accuracy.reset_states()
+        
+        for (minibatch_X, minibatch_Y) in minibatches:
+            
+            with tf.GradientTape() as tape:
+                # 1. predict
+                Z3 = forward_propagation(tf.transpose(minibatch_X), parameters)
+
+                # 2. loss
+                minibatch_cost = compute_cost(Z3, tf.transpose(minibatch_Y))
+
+            # We accumulate the accuracy of all the batches
+            train_accuracy.update_state(minibatch_Y, tf.transpose(Z3))
+            
+            trainable_variables = [W1, b1, W2, b2, W3, b3]
+            grads = tape.gradient(minibatch_cost, trainable_variables)
+            optimizer.apply_gradients(zip(grads, trainable_variables))
+            epoch_cost += minibatch_cost
+        
+        # We divide the epoch cost over the number of samples
+        epoch_cost /= m
+
+        # Print the cost every 10 epochs
+        if print_cost == True and epoch % 10 == 0:
+            print ("Cost after epoch %i: %f" % (epoch, epoch_cost))
+            print("Train accuracy:", train_accuracy.result())
+            
+            # We evaluate the test set every 10 epochs to avoid computational overhead
+            for (minibatch_X, minibatch_Y) in test_minibatches:
+                Z3 = forward_propagation(tf.transpose(minibatch_X), parameters)
+                test_accuracy.update_state(minibatch_Y, tf.transpose(Z3))
+            print("Test_accuracy:", test_accuracy.result())
+
+            costs.append(epoch_cost)
+            train_acc.append(train_accuracy.result())
+            test_acc.append(test_accuracy.result())
+            test_accuracy.reset_states()
+
+    return parameters, costs, train_acc, test_acc
+```
+
+One Hot encodings
+
+![Screen Shot 2022-09-23 at 14.13.54.png](Improving%20Deep%20Neural%20Networks%20Hyperparameter%20Tuni%20b0fd7167ddb34984a40b0dd550166167/Screen_Shot_2022-09-23_at_14.13.54.png)

@@ -1,4 +1,0 @@
-# Division - heartland
-
-Game Status: To-buy
-Status: No Status

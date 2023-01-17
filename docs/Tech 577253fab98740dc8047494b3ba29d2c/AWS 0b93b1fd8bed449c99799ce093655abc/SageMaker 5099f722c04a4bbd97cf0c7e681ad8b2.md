@@ -50,3 +50,10 @@ def save_experiment_df(experiment_name: str) -> pd.DataFrame:
 if __name__ == "__main__":
     save_experiment_df("tune-features-20220324")
 ```
+
+---
+
+## SageMaker Neo
+
+> *“Amazon SageMaker Neo enables developers to optimize machine learning (ML) models for inference on SageMaker in the cloud and supported devices at the edge” … “Amazon SageMaker Neo automatically optimizes machine learning models to perform up to 25x faster with no loss in accuracy. SageMaker Neo uses the tool chain best suited for your model and target hardware platform while providing a simple standard API for model compilation”*
+>

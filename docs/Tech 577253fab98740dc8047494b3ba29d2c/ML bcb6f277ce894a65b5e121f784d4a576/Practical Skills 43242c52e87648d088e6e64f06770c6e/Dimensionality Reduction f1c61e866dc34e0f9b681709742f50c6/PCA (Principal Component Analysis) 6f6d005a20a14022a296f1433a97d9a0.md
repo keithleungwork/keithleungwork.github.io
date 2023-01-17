@@ -1,8 +1,33 @@
 # PCA (Principal Component Analysis)
 
-Developed in 1933……, seriously ?
+Comment: Developed in 1933……, seriously ?
 
 ---
+
+---
+
+## Implementation:
+
+### To implement with scikit:
+
+```python
+from sklearn.decomposition import PCA
+
+# only return 2 components
+pca = PCA(n_components=2)
+pca.fit(flat_x) # the input features shape should be: (samples, features)
+
+print(pca.explained_variance_ratio_)
+# out: [0.58640506 0.06278766]
+
+# transform data for visualization later
+X_r = pca.transform(flat_x)
+X_r.shape
+# out: [samples, 2]
+
+# OR, you can fit and transform at the same time
+X_r = pca.fit_transform(flat_x)
+```
 
 ---
 
@@ -88,3 +113,4 @@ When reducing dimensions with PCA, it changes the distances of our data. (the di
 - ****Image Classification with Principal Component Analysis -**** [https://www.christopherlovell.co.uk/blog/2016/07/04/image-pca-deckchair.html](https://www.christopherlovell.co.uk/blog/2016/07/04/image-pca-deckchair.html)
     - Q:  Why a monochrome image has color like that?
 - Use PCA in Image compression - [https://towardsdatascience.com/image-compression-using-principal-component-analysis-pca-253f26740a9f](https://towardsdatascience.com/image-compression-using-principal-component-analysis-pca-253f26740a9f)
+- Use PCA for MNIST dataset demonstration - [https://builtin.com/data-science/tsne-python](https://builtin.com/data-science/tsne-python)

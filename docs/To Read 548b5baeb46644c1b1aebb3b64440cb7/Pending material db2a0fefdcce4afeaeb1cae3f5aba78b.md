@@ -18,10 +18,21 @@
     - from Chou : 初等統計學 抽樣調查 迴歸分析
 - ViTDet - [https://arxiv.org/abs/2203.16527](https://arxiv.org/abs/2203.16527) (2022)
     - [https://github.com/facebookresearch/detectron2/tree/main/projects/ViTDet](https://github.com/facebookresearch/detectron2/tree/main/projects/ViTDet)
-    
+- ****Imagic: Text-Based Real Image Editing with Diffusion Models**** (2022)
+    - [https://arxiv.org/abs/2210.09276](https://arxiv.org/abs/2210.09276)
+    - example - [https://twitter.com/_akhaliq/status/1582175757153230849](https://twitter.com/_akhaliq/status/1582175757153230849)
+- Donut
+    - [https://github.com/clovaai/donut](https://github.com/clovaai/donut)
 
 ## Short
 
+- Federated Learning
+    - [https://pair.withgoogle.com/explorables/federated-learning/](https://pair.withgoogle.com/explorables/federated-learning/)
+- How large the data size should be - [https://www.qualtrics.com/au/experience-management/research/determine-sample-size/?rid=ip&prevsite=en&newsite=au&geo=JP&geomatch=au](https://www.qualtrics.com/au/experience-management/research/determine-sample-size/?rid=ip&prevsite=en&newsite=au&geo=JP&geomatch=au)
+- GPT3 - [https://openai.com/blog/gpt-3-apps/](https://openai.com/blog/gpt-3-apps/)
+- Image processing short tutorials
+    - [https://datacarpentry.org/image-processing/](https://datacarpentry.org/image-processing/)
+- metric learning [https://towardsdatascience.com/the-why-and-the-how-of-deep-metric-learning-e70e16e199c0](https://towardsdatascience.com/the-why-and-the-how-of-deep-metric-learning-e70e16e199c0)
 - sklearn - *stratify -* [https://scikit-learn.org/stable/modules/cross_validation.html#stratification](https://scikit-learn.org/stable/modules/cross_validation.html#stratification)
 - Model architecture
     - CNN, Rnn, GAN

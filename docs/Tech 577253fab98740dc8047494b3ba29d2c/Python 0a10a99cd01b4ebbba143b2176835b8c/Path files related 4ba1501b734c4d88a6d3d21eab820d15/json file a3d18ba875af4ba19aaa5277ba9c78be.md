@@ -3,18 +3,23 @@
 ## Write to json
 
 ```python
-# Directly from dictionary
-map_file_path = os.path.join(MODEL_OUTPUT_DIR, ID_LABEL_MAP_FILENAME)
+import json
+import os
+
+json_file_content = {"test": 11111}
+json_path = "/aaaa/bbb/aaa.json"
 # In case folder not exist...
-os.makedirs(os.path.dirname(map_file_path), exist_ok=True)
-json_file_content = {"id2label": id2label, "label2id": label2id}
-with open(map_file_path, 'w') as outfile:
-    json.dump(json_file_content, outfile, ensure_ascii=False)
+os.makedirs(os.path.dirname(json_path), exist_ok=True)
+with open(json_path, 'w') as outfile:
+    json.dump(json_file_content, outfile, ensure_ascii=False, indent=4)
 ```
 
 ## Read from json
 
 ```python
-with open(map_file_path) as f:
-    id_label_map = json.load(f)
+import json
+
+f_path = "/xxx/xxx/xxx/wdw.json"
+with open(f_path) as f:
+    json_obj = json.load(f)
 ```

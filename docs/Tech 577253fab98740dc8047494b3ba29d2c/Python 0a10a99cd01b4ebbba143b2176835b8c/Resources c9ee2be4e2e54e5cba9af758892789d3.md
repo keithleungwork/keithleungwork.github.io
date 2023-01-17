@@ -1,5 +1,11 @@
 # Resources
 
+## Framework
+
+- Easy-to-build ML demo site
+    - Gradio
+    - Streamlit
+
 # Useful small lib
 
 - invoke : [https://www.pyinvoke.org/](https://www.pyinvoke.org/)
@@ -7,11 +13,16 @@
     - [https://faker.readthedocs.io/en/master/providers/faker.providers.ssn.html](https://faker.readthedocs.io/en/master/providers/faker.providers.ssn.html)
 - Timezone helper, can init timezone info in 1 line
     - [https://dateutil.readthedocs.io/en/stable/](https://dateutil.readthedocs.io/en/stable/)
+- joblib
+    - [https://joblib.readthedocs.io/en/latest/index.html](https://joblib.readthedocs.io/en/latest/index.html)
+    - Optimize to do pipeline operation
 
 ---
 
 ## Image processing
 
+- skimage (scikit-image)
+    - [https://scikit-image.org/](https://scikit-image.org/)
 - openCV
 - Pillow
 

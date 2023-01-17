@@ -2,14 +2,6 @@
 
 ---
 
-## Newsletter
-
-- [https://read.deeplearning.ai/the-batch/](https://read.deeplearning.ai/the-batch/)
-- [https://dataelixir.com/](https://dataelixir.com/)
-- [https://www.deeplearningweekly.com/](https://www.deeplearningweekly.com/)
-
----
-
 ## Book 📘
 
 > Some thoughts: Prefer to read books of general knowledge, instead of introducing a specific framework/library.
@@ -48,7 +40,18 @@
 
 ---
 
-# Blog 📝
+## Video Blog 📹
+
+- Google research youtube - [https://www.youtube.com/c/GoogleResearch](https://www.youtube.com/c/GoogleResearch)
+- Google developer - [https://www.youtube.com/googlecode](https://www.youtube.com/googlecode)
+- Datacamp - [https://www.youtube.com/c/Datacamp](https://www.youtube.com/c/Datacamp)
+- Full Stack Deep Learning Youtube channel - [https://www.youtube.com/c/fullstackdeeplearning](https://www.youtube.com/c/fullstackdeeplearning)
+- PyTorch youtube
+    - [https://www.youtube.com/c/PyTorch](https://www.youtube.com/c/PyTorch)
+
+---
+
+# Regular Updated Blog 📝
 
 - bnomial blog
     - [https://machinelearningmastery.com/blog/](https://machinelearningmastery.com/blog/)
@@ -58,16 +61,18 @@
     - [https://neptune.ai/blog](https://neptune.ai/blog)
 - MLops blog
     - [https://data.gunosy.io/entry/mlops](https://data.gunosy.io/entry/mlops)
-- ML From Scratch - [https://mlfromscratch.com/](https://mlfromscratch.com/)
-    - It is abandoned, so remove it after reading all interested posts
-    - Activation function - [https://mlfromscratch.com/activation-functions-explained/](https://mlfromscratch.com/activation-functions-explained/)
 - AWS MLU (ML University)
     - [https://mlu-explain.github.io/](https://mlu-explain.github.io/)
-- Twitter (following data scientists, engineers, project managers, etc)
-- [Reddit (r/MachineLearning)](https://www.reddit.com/r/MachineLearning/)
 - Open ai blog - [https://openai.com/blog/](https://openai.com/blog/)
 - Facebook ai blog - [https://ai.facebook.com/](https://ai.facebook.com/)
-- Google research youtube - [https://www.youtube.com/c/GoogleResearch](https://www.youtube.com/c/GoogleResearch)
+
+### Newsletter
+
+- [https://read.deeplearning.ai/the-batch/](https://read.deeplearning.ai/the-batch/)
+- [https://dataelixir.com/](https://dataelixir.com/)
+- [https://www.deeplearningweekly.com/](https://www.deeplearningweekly.com/)
+- [Reddit (r/MachineLearning)](https://www.reddit.com/r/MachineLearning/)
+- Twitter (following data scientists, engineers, project managers, etc)
 
 ### **Resource Lists :**
 
@@ -87,9 +92,15 @@
 
 # Tutorial / Doc
 
-The Maths aspect in ML (image from [reddit](https://www.reddit.com/r/learnmachinelearning/comments/whi3rt/mathematics_for_machine_learning/?utm_medium=android_app&utm_source=share)) 
+- The ML landscape
+    
+    ![Untitled](Reading%20Material%200344b3212c0d4e63b3fcaa27c346745c/Untitled.png)
+    
 
-![RDT_20220807_1324227310112869876760638.jpg](Reading%20Material%200344b3212c0d4e63b3fcaa27c346745c/RDT_20220807_1324227310112869876760638.jpg)
+- The Maths aspect in ML (image from [reddit](https://www.reddit.com/r/learnmachinelearning/comments/whi3rt/mathematics_for_machine_learning/?utm_medium=android_app&utm_source=share))
+    
+    ![RDT_20220807_1324227310112869876760638.jpg](Reading%20Material%200344b3212c0d4e63b3fcaa27c346745c/RDT_20220807_1324227310112869876760638.jpg)
+    
 
 - ***Recommended*** - By Jason Brownlee PhD - guide posts by various ML path
     - [https://machinelearningmastery.com/start-here/#getstarted](https://machinelearningmastery.com/start-here/#getstarted)
@@ -106,6 +117,15 @@ The Maths aspect in ML (image from [reddit](https://www.reddit.com/r/learnmachin
     - Can get certificate
 - ***Recommended*** - Dive into Deep learning - [https://d2l.ai/index.html](https://d2l.ai/index.html)
     - Super great interactive DL book with notebbok
+- ML simple learning via drafting illustration
+    - [https://illustrated-machine-learning.github.io/index.html](https://illustrated-machine-learning.github.io/index.html)
+    - Like this:
+        
+        ![Screen Shot 2023-01-11 at 14.45.46.png](Reading%20Material%200344b3212c0d4e63b3fcaa27c346745c/Screen_Shot_2023-01-11_at_14.45.46.png)
+        
+- ML From Scratch - [https://mlfromscratch.com/](https://mlfromscratch.com/)
+    - It is abandoned, so remove it after reading all interested posts
+    - Activation function - [https://mlfromscratch.com/activation-functions-explained/](https://mlfromscratch.com/activation-functions-explained/)
 - Scikit learn
     - Its user guide is too complex. But is a very great outline of algorithm that you should learn. Just use it as a target list.
 - Tensorflow - [https://www.tensorflow.org/tutorials](https://www.tensorflow.org/tutorials)
@@ -125,8 +145,6 @@ The Maths aspect in ML (image from [reddit](https://www.reddit.com/r/learnmachin
 - Coursera
     - Deep learning specialization (by deeplearning.ai) [https://www.coursera.org/specializations/deep-learning](https://www.coursera.org/specializations/deep-learning)
     - GAN specialization (by deeplearning.ai) [https://www.coursera.org/specializations/generative-adversarial-networks-gans](https://www.coursera.org/specializations/generative-adversarial-networks-gans)
-- Full Stack Deep Learning Youtube channel
-    - [https://www.travelwith.jp/roadtraveler/post-62256/](https://www.travelwith.jp/roadtraveler/post-62256/)
 - Codecademy - provide many project-wise lesson path, can build up portfolio seamlessly
     - [https://www.codecademy.com/learn/paths/master-statistics-with-python](https://www.codecademy.com/learn/paths/master-statistics-with-python)
 - Fastai
@@ -134,8 +152,6 @@ The Maths aspect in ML (image from [reddit](https://www.reddit.com/r/learnmachin
     - It's approach is from top level and learn practical first
 - Deeplearning ai
     - Opposite from fastai, start from low level like Maths, and then gradually deep dive to Tensorflow
-- PyTorch youtube
-    - [https://www.youtube.com/c/PyTorch](https://www.youtube.com/c/PyTorch)
 
 ---
 
